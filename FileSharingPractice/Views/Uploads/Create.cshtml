@@ -1,0 +1,48 @@
+﻿@model FileSharingPractice.Models.InputViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="float:right">
+    <a asp-action="Index" class="btn btn-outline-info">Back to Upload</a>
+</div>
+<h1>Uplooad</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input asp-for="File" onchange="choseFile()" type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" id="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <span asp-validation-for="File " class="text-danger"></span>
+                </div>
+
+                @*<label asp-for="File" class="control-label"></label>
+                <input asp-for="File" class="form-control" type="file" />
+                <span asp-validation-for="File " class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-outline-secondary" />
+ 
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+    function choseFile() {
+        var ele = document.getElementById('customFile');
+        var name = ele.files.length > 0 ? ele.files[0].name : 'choose file';
+        document.getElementById('custom-file-label').innerText = name;
+    }
+</script>
+}

@@ -1,0 +1,12 @@
+﻿body {
+}
+.main-content{
+    padding-top: 130px;
+}
+.main-content h1{
+    color: #0091ea;
+}
+
+field-validation-error{
+    color:red;
+}

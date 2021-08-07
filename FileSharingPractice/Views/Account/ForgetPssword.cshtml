@@ -1,0 +1,55 @@
+﻿@inject IViewLocalizer Localize
+@model FileSharingPractice.Models.ForgetPasswordViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Start Contact -->
+<section id="mu-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-contact-area" style="padding-top:0px">
+                    <!-- Title -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mu-title">
+                                <h2>@Localize["Title"]</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Contact Content -->
+                    <div class="mu-contact-content">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="mu-contact-form-area">
+                                    <div id="form-messages"></div>
+                                    <form id="contact" method="post" class="mu-contact-form" asp-action="ForgetPssword" asp-controller="Account">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <span class="fa fa-envelope mu-contact-icon"></span>
+                                            <input type="email" asp-for="Email" class="form-control" placeholder=@Localize["Email"] id="email" required>
+                                            <span asp-validation-for="Email"></span>
+                                        </div>
+                                        <button type="submit" class="mu-send-msg-btn"><span>@Localize["Submit"]</span></button>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                    </div>
+                    <!-- End Contact Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

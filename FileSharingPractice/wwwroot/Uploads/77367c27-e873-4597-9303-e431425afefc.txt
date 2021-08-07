@@ -1,0 +1,6 @@
+ <div class="form-group">
+            @Html.LabelFor(model => model.BrchID, "Select Branch", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BrchID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BrchID, "", new { @class = "text-danger" })
+            </div>
